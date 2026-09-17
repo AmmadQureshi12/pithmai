@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## AI provider setup
+
+The chat API tries providers in this order: Gemini, Groq, then OpenRouter. If a configured provider returns a rate-limit, server, network, timeout, or empty-response error, the next configured provider is used.
+
+Add these server-only variables to `.env.local` (at least one is required):
+
+```env
+GEMINI_API_KEY=your-gemini-key
+GROQ_API_KEY=your-groq-key
+OPENROUTER_API_KEY=your-openrouter-key
+```
+
+Optional model overrides are `GEMINI_MODEL`, `GROQ_MODEL`, and `OPENROUTER_MODEL`. Never expose these keys in `NEXT_PUBLIC_*` variables or browser code.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
