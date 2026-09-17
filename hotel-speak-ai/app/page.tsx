@@ -1,6 +1,6 @@
 import Link from "next/link";
-import HotelScene from "@/app/components/hotel-scene";
 import AiChatbot from "@/app/components/ai-chatbot";
+import StepImageSlideshow from "@/app/components/step-image-slideshow";
 
 const features = [
   ["AI Conversation Practice", "Roleplay realistic front desk, service, and complaint conversations."],
@@ -63,17 +63,6 @@ export default function Home() {
               <span><strong>24/7</strong> learning access</span>
             </div>
           </div>
-
-          <div className="hero-visual panel">
-            <div className="hero-visual-heading">
-              <div>
-                <p className="eyebrow">Hotel communication lab</p>
-                <h2>Practise the moments that matter.</h2>
-              </div>
-              <span className="status-dot">Live</span>
-            </div>
-            <HotelScene />
-          </div>
         </section>
 
         <section id="features" className="content-section" aria-labelledby="features-title">
@@ -114,7 +103,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-it-works" className="content-section" aria-labelledby="how-title">
+        <section id="how-it-works" className="content-section how-it-works-section" aria-labelledby="how-title">
           <div className="section-heading">
             <div>
               <p className="eyebrow">How it works</p>
@@ -124,11 +113,15 @@ export default function Home() {
           <div className="steps-grid">
             {steps.map(([title, description], index) => (
               <article key={title} className="step-card">
-                <span className="step-number">0{index + 1}</span>
-                <div><h3>{title}</h3><p>{description}</p></div>
+                <div className="step-card-top"><span className="step-number">0{index + 1}</span><span className="step-label">Step {index + 1}</span></div>
+                <div className="step-card-content"><h3>{title}</h3><p>{description}</p></div>
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="how-image-section" aria-label="Hotel learning moments">
+          <StepImageSlideshow wide />
         </section>
 
         <section className="cta-panel" aria-labelledby="cta-title">
